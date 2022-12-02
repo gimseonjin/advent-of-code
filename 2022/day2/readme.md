@@ -123,7 +123,8 @@ Following the Elf's instructions for the second column, what would your total sc
 Your puzzle answer was 12725.
 
 ===================
-This IS Utils For Day2
+
+This Is Utils For Day2
 
 ~~~java
 import java.io.BufferedReader;
