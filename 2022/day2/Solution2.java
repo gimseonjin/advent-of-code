@@ -55,9 +55,9 @@ public class Solution2 {
         String me = "";
 
         switch (input[1]){
-            case "X": me = Utils2.TO_LOSE.get(you); break;
-            case "Y": me = Utils2.TO_DRAW.get(you); break;
-            case "Z": me = Utils2.TO_WIN.get(you); break;
+            case "X" -> me = Utils2.TO_LOSE.get(you);
+            case "Y" -> me = Utils2.TO_DRAW.get(you);
+            case "Z" -> me = Utils2.TO_WIN.get(you);
         }
 
         return Utils2.GUIDE.get(me) + Solution2.getOutcome(you, me);
