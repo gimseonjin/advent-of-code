@@ -85,6 +85,6 @@ class Section{
     }
 
     public static Boolean isOverlap(Section s1, Section s2){
-        return (s1.start <= s2.start && s2.start <= s1.end) || (s2.start <= s1.start && s1.start <= s2.end);
+        return !(s1.start > s2.end || s2.start > s1.end);
     }
 }
