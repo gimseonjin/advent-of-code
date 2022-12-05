@@ -57,7 +57,7 @@ public class Solution3 {
     }
 
     public static List<String> deleteDuplicateInString(String s){
-        return List.of(s.split("")).stream().sorted().distinct().collect(toList());
+        return List.of(s.split("")).stream().distinct().collect(toList());
     }
 
     public static int charToPoint(char c){
