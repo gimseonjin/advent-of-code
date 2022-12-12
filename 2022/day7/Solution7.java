@@ -53,20 +53,9 @@ public class Solution7 extends AbstractSolution{
         for(String command: input.split("\n")){
             String[] commandArr = command.split(" ");
 
-            /*
-            if(command.contains("$")){
-                switch (handleCommand(command)){
-                    case "go to root" -> curDirectory = root;
-                    case "go parents" -> curDirectory.getParents();
-                    case "go directory" -> curDirectory = curDirectory.getFile(commandArr[2]);
-                    case "show directory" -> System.out.println("ls");
-                }
+            if(commandArr[0].equals("$")){
 
-             */
-
-            if(commandArr[0].equals("$")){ // command with cd -> ls는 단순 조회여서 필요없음
-
-                if(commandArr[1].equals("cd")) {
+                if(commandArr[1].equals("cd")) {  // command with cd -> ls는 단순 조회여서 필요없음
                     if (commandArr[2].equals("/")) {
                         curDirectory = root;
                     }
@@ -92,15 +81,7 @@ public class Solution7 extends AbstractSolution{
             }
         }
 
-
         return directoryEntryHashMap;
-    }
-
-    public static String handleCommand(String command){
-        if(command.contains("ls")) return "show directory";
-        if(command.contains("cd /")) return "go to root";
-        if(command.contains("cd ..")) return "go parents";
-        return "go directory";
     }
 }
 
@@ -114,7 +95,9 @@ class DirectoryEntry extends FileEntry{
     }
 
     public Integer getSize(){
-        return files.values().stream().map(x -> x.getSize()).reduce(0, Integer::sum);
+        return files.values().stream()
+                .map(x -> x.getSize())
+                .reduce(0, Integer::sum);
     }
 
     public void addFile(FileEntry fe){

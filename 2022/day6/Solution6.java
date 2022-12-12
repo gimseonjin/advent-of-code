@@ -3,8 +3,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class Solution6 {
 
@@ -16,21 +14,18 @@ public class Solution6 {
     public static void problem1() throws IOException {
         String input = Solution5.getInputs("2022/day6/input.txt");
 
-        for(int i = 0; i < input.length(); i++){
-            String target = input.substring(i, i+4);
-
-            if(isStartOfPacketMarker(target)){
-                System.out.println(i+4);
-                break;
-            }
-        }
+        findStartOfPacketMarker(input, 4);
     }
 
     public static void problem2() throws IOException {
         String input = Solution5.getInputs("2022/day6/input.txt");
 
+        findStartOfPacketMarker(input, 14);
+    }
+
+    public static void findStartOfPacketMarker(String input, Integer packetLength){
         for(int i = 0; i < input.length(); i++){
-            String target = input.substring(i, i+14);
+            String target = input.substring(i, i+packetLength);
 
             if(isStartOfPacketMarker(target)){
                 System.out.println(i+target.length());
@@ -41,7 +36,6 @@ public class Solution6 {
 
     public static Boolean isStartOfPacketMarker(String target){
         Long distinctStringCount = List.of(target.split("")).stream().distinct().count();
-
         return distinctStringCount == target.length();
     }
 
