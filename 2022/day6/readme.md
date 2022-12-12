@@ -34,12 +34,6 @@ How many characters need to be processed before the first start-of-packet marker
         findStartOfPacketMarker(input, 4);
     }
 
-    public static void problem2() throws IOException {
-        String input = Solution5.getInputs("2022/day6/input.txt");
-
-        findStartOfPacketMarker(input, 14);
-    }
-
     public static void findStartOfPacketMarker(String input, Integer packetLength){
         for(int i = 0; i < input.length(); i++){
             String target = input.substring(i, i+packetLength);
